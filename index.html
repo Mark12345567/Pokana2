@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/icon.ico" rel="icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="style.css" rel="stylesheet">
+    <title>MyMailBG</title>
+</head>
+<body>
+    <div id="heart-container"></div>
+    <header>
+        <div class="headerInfo">
+            <i class='bx bx-menu'></i>
+            <p>MyMailBG</p>
+        </div>
+        <div class="headerInfo">
+            <p>Здравейте, Катя Христова</p>
+            <i class='bx bx-user-circle'></i>
+        </div>
+
+    </header>
+    <main>
+        <div class="chooseFolder">
+            <div class="folder activeFolder" ><i class='bx bx-envelope'></i> Входяща поща</div>
+            <div class="folder"> <i class='bx bx-star' ></i> Със звезда</div>
+            <div class="folder"><i class='bx bx-paper-plane'></i> Изпратени</div>
+            <div class="folder"><i class='bx bx-mail-send' ></i> Важни</div>
+            <div class="folder"><i class='bx bx-bug'></i> Спам</div>
+            <div class="folder"><i class='bx bx-trash' ></i> Кошче</div>
+        </div>
+        <div class="mailContent">
+            <div class="mail" onclick="openEmail(this)">
+                <div class="sender">
+                    <h1>12а клас</h1>
+                    <hr>
+                    <h1>Покана</h1>                   
+                </div>
+                <p class="dateSend">25.11</p>
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="content">
+                        <p class="contentText"></p>
+                        <button class="mailButton" onclick="startFallingHearts()">Да</button>
+                        <button class="mailButton" onclick="moveButton(this)">Не</button>
+                    </div>
+                </div>                
+            </div>
+        </div>
+
+    </main>
+</body>
+<script src="script.js"></script>
+</html>

@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Protest+Strike&display=swap');
+
+body{
+    background-image:url(img/pexels-lum3n-44775-167699.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    font-family: "Neucha", cursive;
+}
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+header{
+    display: flex; 
+    justify-content: space-between; 
+    flex-direction: row;
+
+}
+.headerInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerInfo p{
+    margin: 5px;
+    font-size: 30px;
+}
+.headerInfo i{
+    cursor: pointer;
+    margin: 5px;
+    font-size: 40px;
+}
+.chooseFolder{
+    width: 20%;
+    margin-left: 10px;
+    padding: 5px;
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;;
+}
+.folder{
+    background-color: black;
+    margin: 5px 0px;
+    font-size: 30px;
+    padding: 8px;
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.folder i{
+    vertical-align: middle;
+}
+.activeFolder{
+    background-color: #243d51;
+}
+.folder:hover{
+    background-color: #243d51;
+}
+.mailContent{
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.6);
+    height: 90%;
+    margin-left: 20px;
+    border-radius: 30px;
+    padding: 10px;
+}
+.mail{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    background-color: #243d51;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 18px;
+    color:white;
+    cursor: pointer;
+    overflow: hidden;
+}
+.dateSend{
+    font-size: 20px;
+}
+.sender{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+/*envelope opening*/
+.envelope {
+    position: fixed; /* Center the envelope */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleY(0); /* Start hidden */
+    width: 900px; /* Adjust size */
+    height: 500px; /* Adjust size */
+    background: white;
+    border-radius: 8px;
+    z-index: 10; /* Ensure it appears above everything else */
+    transform-origin: center; /* Start animation from the center */
+    transition: transform 1s ease-in-out, opacity 2s ease-in-out; /* Slower transition */
+}
+
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 450px solid transparent; /* Half of the envelope's width */
+    border-right: 450px solid transparent; /* Half of the envelope's width */
+    border-bottom: 200px solid #d1d1d1; /* Adjust to match envelope proportions */
+    transform: translateX(-50%);
+    transform-origin: center; /* Start animation from the center */
+    transition: transform 2s ease-in-out; /* Slower transition */
+    z-index: 11; /* Ensure flap is above the envelope background */
+}
+
+.envelope .content {
+    transition: opacity 2s ease-in-out; /* Slower transition */
+    text-align: center;
+    z-index: 1;
+    color: black;
+    width: 100%;
+    height: 100%;
+
+}
+.contentText{
+    font-size: 75px;
+}
+.envelope.open {
+    transform: translate(-50%, -50%) scaleY(1); /* Expand envelope */
+}
+
+.envelope.open .flap {
+    transform: translateX(-50%) translateY(-100%) rotateX(0deg); /* Keep the flap at the top */
+}
+
+.hidden {
+    display: none;
+}
+
+.mailButton{
+    width: 200px;
+    height: 90px;
+    background-color: #243d51;
+    color:white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 75px;
+    margin: 10px;
+    z-index: 12;
+}
+
+/*hears fall animation*/
+
+#heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 12;
+    pointer-events: none; /* Disable interaction with hearts */
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    transform: rotate(-45deg);
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 15px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0;
+    }
+}
